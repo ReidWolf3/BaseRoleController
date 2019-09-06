@@ -163,16 +163,45 @@ RoleMenuID varchar(50) primary key not null,
 RoleID varchar(50) null,
 --菜单ID
 MenuID varchar(50) null,
---是否可以查询
-IsSelect int null,
---是否可以插入
-IsInsert int null,
---是否可以编辑
-IsUpdate int null,
---是否可以删除
-IsDelete int null,
---是否可以审核
-IsApproval int null,
+CreateTime datetime null,
+CreateBy varchar(50) null,
+LastUpdateTime datetime null,
+LastUpdateBy varchar(50) null
+)
+go
+
+use RoleMenuControllerBase
+go
+create table [Function]
+(
+FunctionID varchar(50) primary key not null,
+--功能Code
+FunctionCode varchar(100) null,
+--功能名称
+FunctionName varchar(100) null,
+--功能路径
+FunctionPath varchar(100) null,
+--父类功能
+ParentFunctionID varchar(100) null,
+--功能描述
+Descript varchar(300) null,
+ValidFlag int null,
+CreateTime datetime null,
+CreateBy varchar(50) null,
+LastUpdateTime datetime null,
+LastUpdateBy varchar(50) null
+)
+go
+
+use RoleMenuControllerBase
+go
+create table [SystemRoleFunction]
+(
+RoleFunctionID varchar(50) primary key not null,
+--角色ID
+RoleID varchar(50) null,
+--功能ID
+FunctionID varchar(50) null,
 CreateTime datetime null,
 CreateBy varchar(50) null,
 LastUpdateTime datetime null,
